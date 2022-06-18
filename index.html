@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYN ORGANIZATION</title>
+    <link rel="shortcut icon" href="data/images/logo.png">
+    <link rel="stylesheet" href="data/css/main.css">
+</head>
+
+<body>
+    <div class="logo"><img src="data/images/logo.png" alt="LOGO"></div>
+    <div class="dark" onclick="darkMode()">
+        <span></span>
+    </div>
+
+    <section class="wrapper-form">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <form action="https://formsubmit.co/shivam9546486368@gmail.com" class="form" onsubmit="return check()" method="POST">
+
+            <fieldset>
+                <legend>
+                    <h1 class="title">Registration Form</h1>
+                </legend>
+                <input type="text" placeholder="Name" class="First-Name form_data" name="Name">
+                <span class="Error-First">Please enter your name</span>
+
+                <input type="text" placeholder="D.O.B : DD/MM/YEAR " class="DOB form_data" name="DOB">
+                <span class="Error-dob">Please enter your date of birth</span>
+
+                <input type="tel" placeholder="Phone Number" class="Phone-Number form_data" name="Phone_NO.">
+                <span class="Error-phone">Please enter your phone number</span>
+
+                <input type="email" placeholder="Email" class="Email form_data" name="Email">
+                <span class="Error-Email">Please enter your email</span>
+
+                <input type="text" placeholder="Branch" class="branch form_data" name="Branch">
+                <span class="Error-branch">Please enter your Branch</span>
+
+                <select name="Interested" class="form_data" name="Interest" required>
+                    <option value="NOT SELECTED">Interested in</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Event">Event</option>
+                    <option value="Technical">Technical</option>
+                    <option value="Public Speaking">Public Speaking</option>
+                    <option value="Content Creator">Content Creator</option>
+                    <option value="Resource Manager">Resource Manager</option>
+                </select>
+                <input type="hidden" name="_next" value="https://abhidigiworld.github.io/synregistrationform/thank.html">
+                <input type="submit" class="submit">
+            </fieldset>
+        </form>
+        <div class="form-inner"></div>
+    </section>
+    <!-- this is the script file data -->
+    <script>
+        function check() {
+
+            var i = 0
+
+            document.getElementsByClassName('Error-First')[0].style.display = 'none'
+            document.getElementsByClassName('Error-branch')[0].style.display = 'none'
+            document.getElementsByClassName('Error-dob')[0].style.display = 'none'
+            document.getElementsByClassName('Error-phone')[0].style.display = 'none'
+            document.getElementsByClassName('Error-Email')[0].style.display = 'none'
+
+            var First = document.getElementsByClassName('First-Name')[0].value
+            var Branch = document.getElementsByClassName('branch')[0].value
+            var Last = document.getElementsByClassName('DOB')[0].value
+            var Phone = document.getElementsByClassName('Phone-Number')[0].value
+            var Email = document.getElementsByClassName('Email')[0].value
+
+
+            if (First == null || First == '') {
+                document.getElementsByClassName('Error-First')[0].style.display = 'inline-block'
+                i++
+            }
+
+            if (Branch == null || Branch == '') {
+                document.getElementsByClassName('Error-branch')[0].style.display = 'inline-block'
+                i++
+            }
+
+            if (Last == null || Last == '') {
+                document.getElementsByClassName('Error-dob')[0].style.display = 'inline-block'
+            }
+
+            if ((Phone >= 'a' && Phone <= 'z') || (Phone >= 'A' && Phone <= 'Z') || (Phone.length < 10)) {
+                document.getElementsByClassName('Error-phone')[0].style.display = 'inline-block'
+                i++
+            }
+
+            if ((Email.indexOf('@') == -1) || (Email == null) || (Email == '')) {
+                document.getElementsByClassName('Error-Email')[0].style.display = 'inline-block'
+                i++
+            }
+
+            if (i > 0) {
+                return false
+            }
+        }
+
+        // dark script mode script of java 
+        var x = 1
+
+        function darkMode() {
+            if (x % 2) {
+                document.querySelector('.dark span').style.marginLeft = '24px'
+                document.getElementsByTagName('body')[0].style.background = "#e8e8e8"
+                document.getElementsByClassName('title')[0].style.color = "#757575"
+                document.querySelector('.form *').style.color = "#757575"
+            } else {
+                document.querySelector('.dark span').style.marginLeft = '0'
+                document.getElementsByTagName('body')[0].style.background = "#212121"
+                document.getElementsByClassName('title')[0].style.color = "#e8e8e8"
+            }
+            x++
+        }
+    </script>
+</body>
+
+</html>
